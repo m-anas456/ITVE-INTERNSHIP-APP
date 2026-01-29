@@ -24,9 +24,13 @@ export default function RootLayout() {
           name="modal"
           options={{ presentation: "modal", title: "Modal" }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="settings-promoter"
           options={{ title: "Settings" }}
+        /> */}
+        <Stack.Screen
+          name="linked-accounts"
+          options={{ title: "Linked Accounts" }}
         />
       </Stack>
       <StatusBar style="auto" />
