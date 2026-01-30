@@ -1,5 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 import { StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -10,8 +11,8 @@ export default function LinkedAccountsScreen() {
 
   return (
     <LinearGradient
-      colors={["#6E1919", "#5F1010", "#430303"]}
-      start={{ x: 0.5, y: 0.19 }}
+      colors={["#852121", "#4E0C0C", "#380303"]}
+      start={{ x: 0.5, y: 0.35 }}
       end={{ x: 0.5, y: 1 }}
       style={styles.gradient}
     >
@@ -108,7 +109,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     marginLeft: 16,
-    fontFamily: "Font 1",
   },
   accountCard: {
     flexDirection: "row",
@@ -119,12 +119,6 @@ const styles = StyleSheet.create({
     borderColor: "#34485A",
     marginBottom: 20,
     padding: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.08,
-    shadowRadius: 3,
-    elevation: 4,
-    // backdrop-filter: blur(10px) is not supported in RN, but you can use a blurred background image if needed
   },
   accountIconBox: {
     width: 40,
@@ -144,7 +138,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "500",
-    fontFamily: "Font 1",
     fontStyle: "normal",
     lineHeight: 24,
     letterSpacing: 0,
@@ -154,7 +147,6 @@ const styles = StyleSheet.create({
     color: "#fff8",
     fontSize: 14,
     fontWeight: "400",
-    fontFamily: "Font 1",
     fontStyle: "normal",
     lineHeight: 21,
     letterSpacing: 0,
@@ -171,16 +163,10 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     alignItems: "center",
     marginTop: 32,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 6,
   },
   addAccountBtnText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "700",
-    fontFamily: "Font 1",
   },
 });
