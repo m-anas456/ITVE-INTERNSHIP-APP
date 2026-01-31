@@ -48,7 +48,7 @@ export default function SettingsDonor() {
           <SettingsItem
             icon="account-outline"
             label="Edit Profile"
-            onPress={() => router.push("/edit-profile-promoter")}
+            onPress={() => router.push("/edit-profile-donor")}
           />
           <SettingsItem
             icon="email-outline"
@@ -77,11 +77,12 @@ export default function SettingsDonor() {
           <SettingsItem
             icon="message-text-outline"
             label="Who Can Message Me"
+            onPress={() => router.push("/message-setting-donor")}
           />
           <SettingsItem
             icon="block-helper"
             label="Blocked Users"
-            onPress={() => router.push("/blocked-accounts")}
+            onPress={() => router.push("/blocked-accounts-donor")}
           />
         </Section>
         {/* Notifications Section */}
@@ -107,7 +108,10 @@ export default function SettingsDonor() {
         {/* App Version */}
         <Text style={styles.version}>App Version: v1.0.0</Text>
         {/* Log Out Button */}
-        <TouchableOpacity style={styles.logoutBtn}>
+        <TouchableOpacity
+          style={styles.logoutBtn}
+          onPress={() => router.push("/")}
+        >
           <Text style={styles.logoutBtnText}>Log Out</Text>
         </TouchableOpacity>
       </ScrollView>

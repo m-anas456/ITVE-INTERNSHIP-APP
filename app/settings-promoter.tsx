@@ -1,4 +1,4 @@
-import SettingsPromoter from "../../components/settings-promoter";
+import SettingsPromoter from "../components/settings-promoter";
 
 export default function SettingsPromoterScreen() {
   return <SettingsPromoter />;

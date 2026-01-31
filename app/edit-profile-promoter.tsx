@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -61,7 +61,7 @@ export default function EditProfileScreen() {
         {/* Profile Image */}
         <TouchableOpacity style={styles.profileImageContainer}>
           <Image
-            source={require("../../assets/images/anas.png")} // Replace with your image path
+            source={require("../assets/images/anas.png")} // Replace with your image path
             style={styles.profileImage}
           />
           <Text style={styles.changeText}>Tap to change</Text>
@@ -170,7 +170,7 @@ export default function EditProfileScreen() {
             }}
           /> */}
           <Image
-            source={require("../../assets/images/karachi.jpg")} // Replace with your map image path
+            source={require("../assets/images/karachi.jpg")} // Replace with your map image path
             style={{ width: "100%", height: "100%", borderRadius: 8 }}
             resizeMode="cover"
           />

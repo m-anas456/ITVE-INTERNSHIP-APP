@@ -1,4 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   ScrollView,
@@ -12,6 +13,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function SettingsPromoter() {
+  const router = useRouter();
   const [mentions, setMentions] = useState(true);
   const [seminar, setSeminar] = useState(false);
   const [activationCode, setActivationCode] = useState("");
@@ -45,19 +47,40 @@ export default function SettingsPromoter() {
         </View>
         {/* Account Section */}
         <Section title="Account">
-          <SettingsItem icon="account-outline" label="Edit Profile" />
-          <SettingsItem icon="email-outline" label="Email & Phone" />
-          <SettingsItem icon="lock-outline" label="Change Password" />
-          <SettingsItem icon="link-variant" label="Linked Accounts" />
+          <SettingsItem
+            icon="account-outline"
+            label="Edit Profile"
+            onPress={() => router.push("/edit-profile-promoter")}
+          />
+          <SettingsItem
+            icon="email-outline"
+            label="Email & Phone"
+            onPress={() => router.push("/email-change")}
+          />
+          <SettingsItem
+            icon="lock-outline"
+            label="Change Password"
+            onPress={() => router.push("/change-password")}
+          />
+          <SettingsItem
+            icon="link-variant"
+            label="Linked Accounts"
+            onPress={() => router.push("/linked-accounts")}
+          />
           <SettingsItem
             icon="delete-outline"
             label="Deactivate / Delete Account"
+            onPress={() => router.push("/delete-account")}
             disabled
           />
         </Section>
         {/* Privacy Section */}
         <Section title="Privacy">
-          <SettingsItem icon="block-helper" label="Blocked Users" />
+          <SettingsItem
+            icon="block-helper"
+            label="Blocked Users"
+            onPress={() => router.push("/blocked-accounts")}
+          />
         </Section>
         {/* Notifications Section */}
         <Section title="Notifications">
@@ -105,7 +128,10 @@ export default function SettingsPromoter() {
         {/* App Version */}
         <Text style={styles.version}>App Version: v1.0.0</Text>
         {/* Log Out Button */}
-        <TouchableOpacity style={styles.logoutBtn}>
+        <TouchableOpacity
+          style={styles.logoutBtn}
+          onPress={() => router.push("/")}
+        >
           <Text style={styles.logoutBtnText}>Log Out</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -131,16 +157,19 @@ function Section({
 function SettingsItem({
   icon,
   label,
+  onPress,
   disabled,
 }: {
   icon: string;
   label: string;
+  onPress?: () => void;
   disabled?: boolean;
 }) {
   return (
     <TouchableOpacity
       style={[styles.itemRow, disabled && styles.disabledItem]}
       disabled={disabled}
+      onPress={onPress}
     >
       <Icon
         name={icon}
@@ -209,7 +238,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     marginLeft: 16,
-    fontFamily: "Font 1",
   },
   searchBox: {
     flexDirection: "row",
@@ -224,7 +252,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "#fff",
     fontSize: 16,
-    fontFamily: "Font 1",
+
     fontWeight: "400",
     fontStyle: "normal",
     lineHeight: 24,
@@ -238,7 +266,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     marginBottom: 8,
-    fontFamily: "Font 1",
   },
   sectionCard: {
     backgroundColor: "#fff1",
@@ -257,7 +284,7 @@ const styles = StyleSheet.create({
   itemLabel: {
     color: "#fff",
     fontSize: 16,
-    fontFamily: "Font 1",
+
     fontWeight: "400",
     fontStyle: "normal",
     lineHeight: 24,
@@ -281,7 +308,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     color: "#fff",
     fontSize: 16,
-    fontFamily: "Font 1",
+
     fontWeight: "400",
     fontStyle: "normal",
     lineHeight: 24,
@@ -300,14 +327,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "700",
-    fontFamily: "Font 1",
   },
   version: {
     color: "#fff8",
     fontSize: 14,
     textAlign: "center",
     marginVertical: 16,
-    fontFamily: "Font 1",
   },
   logoutBtn: {
     backgroundColor: "#FF0000",
@@ -321,6 +346,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "700",
     textAlign: "center",
-    fontFamily: "Font 1",
   },
 });

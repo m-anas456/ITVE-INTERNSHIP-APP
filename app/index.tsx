@@ -22,9 +22,14 @@ export default function HomeScreen() {
             Access promoter settings and features
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.card, styles.donorCard]}>
+        <TouchableOpacity
+          style={[styles.card, styles.donorCard]}
+          onPress={() => router.push("/settings-donor")}
+        >
           <Text style={styles.cardTitle}>Donor Screen</Text>
-          <Text style={styles.cardDesc}>(Coming Soon)</Text>
+          <Text style={styles.cardDesc}>
+            Access donor settings and features
+          </Text>
         </TouchableOpacity>
       </View>
     </LinearGradient>
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#B71C1C",
   },
   donorCard: {
-    backgroundColor: "#4E0C0C",
+    backgroundColor: "#cf0cae",
   },
   cardTitle: {
     color: "#fff",
