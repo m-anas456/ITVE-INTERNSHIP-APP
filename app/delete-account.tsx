@@ -1,8 +1,8 @@
 import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    SafeAreaView,
     ScrollView,
     StyleSheet,
     Text,
@@ -10,12 +10,14 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function DeleteAccountScreen() {
   const [fontsLoaded] = useFonts({ Poppins_700Bold });
   const [selected, setSelected] = useState("deactivate");
   const [reason, setReason] = useState("");
+  const router = useRouter();
 
   if (!fontsLoaded) return null;
 
@@ -28,12 +30,17 @@ export default function DeleteAccountScreen() {
     >
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
-          contentContainerStyle={styles.scrollContent}
+          contentContainerStyle={[
+            styles.scrollContent,
+            { paddingHorizontal: 16 },
+          ]}
           showsVerticalScrollIndicator={false}
         >
           {/* Header */}
           <View style={styles.headerRow}>
-            <Icon name="arrow-left" size={24} color="#fff" />
+            <TouchableOpacity onPress={() => router.back()}>
+              <Icon name="arrow-left" size={24} color="#fff" />
+            </TouchableOpacity>
             <Text style={styles.headerTitle}>Delete or deactivate account</Text>
           </View>
 

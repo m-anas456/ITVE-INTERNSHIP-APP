@@ -1,19 +1,21 @@
 import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    SafeAreaView,
     ScrollView,
     StyleSheet,
     Text,
     TouchableOpacity,
     View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function MessageSettingDonor() {
   const [fontsLoaded] = useFonts({ Poppins_700Bold });
   const [selected, setSelected] = useState("everyone");
+  const router = useRouter();
   if (!fontsLoaded) return null;
 
   return (
@@ -25,12 +27,17 @@ export default function MessageSettingDonor() {
     >
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
-          contentContainerStyle={styles.scrollContent}
+          contentContainerStyle={[
+            styles.scrollContent,
+            { paddingHorizontal: 16 },
+          ]}
           showsVerticalScrollIndicator={false}
         >
           {/* Header */}
           <View style={styles.headerRow}>
-            <Icon name="arrow-left" size={24} color="#fff" />
+            <TouchableOpacity onPress={() => router.back()}>
+              <Icon name="arrow-left" size={24} color="#fff" />
+            </TouchableOpacity>
             <Text style={styles.headerTitle}>Who can send you messages?</Text>
           </View>
 

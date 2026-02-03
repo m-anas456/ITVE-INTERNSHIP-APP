@@ -13,7 +13,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default function ChangePasswordScreen() {
+export default function ChangePasswordDonorScreen() {
   const [fontsLoaded] = useFonts({ Poppins_700Bold });
   const [current, setCurrent] = useState("");
   const [newPass, setNewPass] = useState("");
@@ -24,8 +24,8 @@ export default function ChangePasswordScreen() {
 
   return (
     <LinearGradient
-      colors={["#852121", "#4E0C0C", "#380303"]}
-      start={{ x: 0.5, y: 0.35 }}
+      colors={["#4D1A94", "#31125D", "#241042"]}
+      start={{ x: 0.5, y: 0.5 }}
       end={{ x: 0.5, y: 1 }}
       style={styles.gradient}
     >
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     height: 53,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: "#FF0000",
+    borderColor: "#8A2BE2",
     padding: 15,
     marginBottom: 16,
     color: "#fff",
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   confirmBtn: {
     width: "100%",
     height: 48,
-    backgroundColor: "#FF0000",
+    backgroundColor: "#8A2BE2",
     borderRadius: 24,
     alignItems: "center",
     justifyContent: "center",

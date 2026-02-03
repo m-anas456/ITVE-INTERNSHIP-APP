@@ -1,4 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import * as React from "react";
 import { useState } from "react";
 import { StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
@@ -8,6 +9,7 @@ export default function LinkedAccountsScreen() {
   const [googleConnected, setGoogleConnected] = useState(true);
   const [appleConnected, setAppleConnected] = useState(false);
   const [institutionalConnected, setInstitutionalConnected] = useState(false);
+  const router = useRouter();
 
   return (
     <LinearGradient
@@ -16,10 +18,12 @@ export default function LinkedAccountsScreen() {
       end={{ x: 0.5, y: 1 }}
       style={styles.gradient}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, { paddingHorizontal: 16 }]}>
         {/* Header */}
         <View style={styles.headerRow}>
-          <Icon name="arrow-left" size={24} color="#fff" />
+          <TouchableOpacity onPress={() => router.back()}>
+            <Icon name="arrow-left" size={24} color="#fff" />
+          </TouchableOpacity>
           <Text style={styles.headerTitle}>Linked Accounts</Text>
         </View>
         {/* Account Cards */}

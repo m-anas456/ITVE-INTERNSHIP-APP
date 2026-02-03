@@ -1,4 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
     StyleSheet,
@@ -12,6 +13,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 export default function EmailPhoneManagementScreen() {
   const [email, setEmail] = useState("student.name@school.edu");
   const [phone, setPhone] = useState("+92 333 3333333");
+  const router = useRouter();
 
   return (
     <LinearGradient
@@ -22,12 +24,14 @@ export default function EmailPhoneManagementScreen() {
     >
       {/* Header stays at the top */}
       <View style={styles.headerRow}>
-        <Icon name="arrow-left" size={24} color="#fff" />
+        <TouchableOpacity onPress={() => router.back()}>
+          <Icon name="arrow-left" size={24} color="#fff" />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>Email / Phone Management</Text>
       </View>
 
       {/* Centered form fields and button */}
-      <View style={styles.formContainer}>
+      <View style={[styles.formContainer, { paddingHorizontal: 16 }]}>
         {/* Email Address */}
         <View style={styles.labelBox}>
           <Text style={styles.label}>Email Address</Text>

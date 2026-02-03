@@ -55,7 +55,10 @@ export default function UpdatesScreen() {
       style={styles.gradient}
     >
       <ScrollView
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[
+          styles.scrollContent,
+          { paddingHorizontal: 16 },
+        ]}
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.header}>Updates</Text>

@@ -1,5 +1,6 @@
 import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 
@@ -28,6 +29,7 @@ export default function EditProfileScreen() {
   const [showDate, setShowDate] = useState(false);
   const [username, setUsername] = useState("");
   const [usernameError, setUsernameError] = useState("");
+  const router = useRouter();
   const genderItems = [
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
@@ -46,12 +48,17 @@ export default function EditProfileScreen() {
       style={styles.gradient}
     >
       <ScrollView
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[
+          styles.scrollContent,
+          { paddingHorizontal: 16 },
+        ]}
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
         <View style={styles.headerRow}>
-          <Icon name="arrow-left" size={24} color="#fff" />
+          <TouchableOpacity onPress={() => router.back()}>
+            <Icon name="arrow-left" size={24} color="#fff" />
+          </TouchableOpacity>
           <Text style={styles.headerTitle}>Edit Profile</Text>
           <TouchableOpacity>
             <Text style={styles.saveText}>Save</Text>

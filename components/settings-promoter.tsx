@@ -25,10 +25,14 @@ export default function SettingsPromoter() {
       end={{ x: 0.5, y: 1 }}
       style={styles.gradient}
     >
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={[styles.container, { paddingHorizontal: 16 }]}
+      >
         {/* Header */}
         <View style={styles.headerRow}>
-          <Icon name="arrow-left" size={24} color="#fff" />
+          <TouchableOpacity onPress={() => router.back()}>
+            <Icon name="arrow-left" size={24} color="#fff" />
+          </TouchableOpacity>
           <Text style={styles.headerTitle}>Settings</Text>
         </View>
         {/* Search */}
@@ -120,10 +124,26 @@ export default function SettingsPromoter() {
         </Section>
         {/* Support & Legal Section */}
         <Section title="Support & Legal">
-          <SettingsItem icon="help-circle-outline" label="Help Center" />
-          <SettingsItem icon="alert-circle-outline" label="Report a Problem" />
-          <SettingsItem icon="shield-lock-outline" label="Privacy Policy" />
-          <SettingsItem icon="file-document-outline" label="Terms of Service" />
+          <SettingsItem
+            icon="help-circle-outline"
+            label="Help Center"
+            onPress={() => router.push("/help-center")}
+          />
+          <SettingsItem
+            icon="alert-circle-outline"
+            label="Report a Problem"
+            onPress={() => router.push("/report-problem")}
+          />
+          <SettingsItem
+            icon="shield-lock-outline"
+            label="Privacy Policy"
+            onPress={() => router.push("/privacy-policy")}
+          />
+          <SettingsItem
+            icon="file-document-outline"
+            label="Terms of Service"
+            onPress={() => router.push("/terms-of-service")}
+          />
         </Section>
         {/* App Version */}
         <Text style={styles.version}>App Version: v1.0.0</Text>

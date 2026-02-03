@@ -11,7 +11,7 @@ export default function HomeScreen() {
       end={{ x: 0.5, y: 1 }}
       style={styles.gradient}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, { paddingHorizontal: 16 }]}>
         <Text style={styles.title}>Choose Your Role</Text>
         <TouchableOpacity
           style={[styles.card, styles.promoterCard]}
